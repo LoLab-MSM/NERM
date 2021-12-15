@@ -207,7 +207,7 @@ Rule('bind_C8Flip_RIP1RIP3', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) 
 
 Rule('RIP1truc_C8Flip', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=6,bDD = 1,bRHIM=5,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = None, bDED2 = None)
      % RIP3(bRHIM=5, bDD = None, state='unmod')% C8(bf=6,flip = 4, state='A') % flip_L(bDED=4, state = 'A') >> TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') +
-     FADD(bDD=None,bDED1 = None, bDED2 = None) +  RIP3(bRHIM=None, bDD = None, state='unmod') + C8(bf=None,flip = None, state='A') % flip_L(bDED=None, state = 'A'), p19f)
+     FADD(bDD=None,bDED1 = None, bDED2 = None) +  RIP3(bRHIM=None, bDD = None, state='unmod') + C8(bf=None,flip = 4, state='A') % flip_L(bDED=4, state = 'A'), p19f)
 
 
 
@@ -276,5 +276,16 @@ Observable('R1pR3pM_obs',RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None
 
 
 generate_equations(model)
+
+print('rules: %d' % len(model.rules))
+print('reactions: %d' % len(model.reactions))
+print('species: %d' % len(model.species))
+print('parameters: %d' % len(model.parameters))
+print('rate constants: %d' % len(model.parameters_rules()))
+print()
+print(model.parameters)
+print()
+for rxn in model.reactions:
+     print(rxn)
 
 
