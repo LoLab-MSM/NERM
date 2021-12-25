@@ -9,17 +9,6 @@ from pysb.simulator import CupSodaSimulator
 from pysb.simulator import ScipyOdeSimulator
 from pysb.simulator.bng import BngSimulator
 
-# x = np.array([1, 2, 3, 4, 5])
-# y = np.power(x, 2) # Effectively y = x**2
-# e = np.array([1.5, 2.6, 3.7, 4.6, 5.5])
-#
-# plt.figure()
-# plt.errorbar(x, y, e, linestyle='None', fmt='o', capsize=3)
-#
-# plt.show()
-# quit()
-
-
 Model()
 
 Monomer('TNF', ['brec'])
@@ -36,21 +25,6 @@ Monomer('flip_L', ['bDED', 'state'], {'state': ['A', 'I']})
 Monomer('RIP3', ['bRHIM', 'bDD', 'state'], {'state': ['unmod', 'po4', 'trunc', 'N']})
 Monomer('MLKL', ['bRHIM', 'state'], {'state': ['unmod', 'active', 'inactive']})
 Monomer('LUBAC', ['brip'])
-
-# Parameter('TNF_0', 2326) # initial condition
-# Parameter('TNFR_0', 4800)
-# Parameter('TRADD_0', 9000)
-# Parameter('RIP1_0', 40000)
-# Parameter('TRAF_0', 9000)
-# Parameter('cIAP_0', 9000)
-# Parameter('MLKLa_0', 10000)
-# Parameter('A20_0', 9000)
-# Parameter('CYLD_0', 9000)
-# Parameter('FADD_0', 8030)
-# Parameter('flip_L_0', 3900)
-# Parameter('Lubac_0', 7226)
-# Parameter('C8_0', 9000)
-# Parameter('RIP3_0', 40000)
 
 Parameter('TNF_0', 2326)
 Parameter('TNFR_0', 4800)
@@ -271,6 +245,10 @@ Observable('R1dbR3_obs', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None
 Observable('R1dbR3p_obs', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None, bDD=None, btraf=None, bMLKL = None, bRHIM = 5, state = 'deub')% RIP3(bRHIM=5, bDD = None, state='po4'))
 Observable('R1pR3p_obs', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None, bDD=None, btraf=None, bMLKL = None, bRHIM = 5, state = 'po4')% RIP3(bRHIM=5, bDD = None, state='po4'))
 Observable('R1pR3pM_obs',RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None, bDD=None, btraf=None, bMLKL = None, bRHIM = 5, state = 'po4')% RIP3(bRHIM=5, bDD = 1, state='po4') % MLKL(bRHIM=1, state='unmod'))
+Observable('RIP1unphos_obs', RIP1(state = 'unmod') + RIP1(state = 'K63ub') + RIP1(state = 'deub'))
+Observable('RIP1phos_obs', RIP1(state = 'po4'))
+Observable('RIP1_obs', RIP1())
+
 
 
 generate_equations(model)
