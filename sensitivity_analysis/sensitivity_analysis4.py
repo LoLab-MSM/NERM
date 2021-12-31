@@ -9,6 +9,7 @@ import numpy as np
 from pysb.bng import generate_equations
 import pysb.simulator.base
 from pysb.logging import get_logger
+import seaborn as sns
 
 
 class InitialsSensitivity(object):
@@ -554,9 +555,13 @@ class InitialsSensitivity(object):
         print(v_min)
         x = [np.array(mat).flatten() for mat in sens_ij_nm[::-1]]
 #         ax.boxplot(x, vert=False, labels=None, showfliers=False)
+        #sns.boxplot(x, vert=False, labels=None, showfliers=False, whis=0)
+        upper_quartile = np.percentile(x, 75)
+        print(upper_quartile)
+        lower_quartile = np.percentile(x, 25)
+        print(lower_quartile)
         ax.boxplot(x, vert=False, labels=None, showfliers=False, whis=0)
-#         upper_quartile = np.percentile(x, 75)
-#         lower_quartile = np.percentile(x, 25)
+#         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
         ax.set_xlim(-4, 4)
         if x_axis_label is not None:
             ax.set_xlabel(x_axis_label, fontsize=15)

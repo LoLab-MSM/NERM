@@ -21,7 +21,7 @@ Monomer('A20', ['brip'])
 Monomer('CYLD', ['brip','btraf'])
 Monomer('FADD', ['bDD', 'bDED1', 'bDED2'])
 Monomer('C8', ['bf', 'flip', 'state'], {'state': ['A', 'I']})
-Monomer('flip_L', ['bDED', 'state'], {'state': ['A', 'I']})
+Monomer('FLIP', ['bDED', 'state'], {'state': ['A', 'I']})
 Monomer('RIP3', ['bRHIM', 'bDD', 'state'], {'state': ['unmod', 'po4', 'trunc', 'N']})
 Monomer('MLKL', ['bRHIM', 'state'], {'state': ['unmod', 'active', 'inactive']})
 Monomer('LUBAC', ['brip'])
@@ -31,8 +31,8 @@ Parameter('C8_0', 3799) #3799
 Parameter('cIAP_0', 9000) #9000
 Parameter('CYLD_0', 9000)
 Parameter('FADD_0', 3109) #3109
-Parameter('flip_L_0', 3900) #3900
-Parameter('Lubac_0', 7226)
+Parameter('FLIP_0', 3900) #3900
+Parameter('LUBAC_0', 7226)
 Parameter('MLKLa_0', 5544) #5544
 Parameter('RIP1_0', 40000)
 Parameter('RIP3_0', 10654) #10654
@@ -46,8 +46,8 @@ Initial(C8(bf=None, flip = None, state='I'), C8_0)
 Initial(cIAP(btraf=None), cIAP_0)
 Initial(CYLD(brip=None, btraf = None), CYLD_0)
 Initial(FADD(bDD=None, bDED1=None, bDED2=None), FADD_0)
-Initial(flip_L(bDED=None, state = 'A'), flip_L_0)
-Initial(LUBAC(brip=None), Lubac_0)
+Initial(FLIP(bDED=None, state = 'A'), FLIP_0)
+Initial(LUBAC(brip=None), LUBAC_0)
 Initial(MLKL(bRHIM=None, state='unmod'), MLKLa_0)
 Initial(RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None, bDD = None, bRHIM = None, bMLKL = None, state='unmod'), RIP1_0)
 Initial(RIP3(bRHIM=None, bDD = None, state='unmod'), RIP3_0)
@@ -150,11 +150,11 @@ Rule('CII_b_C8i', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf
      | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = None, state='I'), p23,p24)
 
 
-Rule('CII_b_FLIP', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2, flip = None,state='I') + flip_L(bDED=None, state = 'A')
-     | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='I') % flip_L(bDED=4, state = 'A'), p25,p26)
+Rule('CII_b_FLIP', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2, flip = None,state='I') + FLIP(bDED=None, state = 'A')
+     | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='I') % FLIP(bDED=4, state = 'A'), p25,p26)
 
-Rule('CIIFLIP_cat_C8a', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='I') % flip_L(bDED=4, state = 'A')
-     | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % flip_L(bDED=4, state = 'A'), p27,p28)
+Rule('CIIFLIP_cat_C8a', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='I') % FLIP(bDED=4, state = 'A')
+     | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % FLIP(bDED=4, state = 'A'), p27,p28)
 #
 # Rule('catalyze_FADDANY_flip_L', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % flip_L(bDED=4, state = 'A') >>
 #      TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') + FADD(bDD=None,bDED1 = None, bDED2 = None) + C8(bf=None,flip = None, state='I') + flip_L(bDED=None, state = 'I') , p17f)
@@ -167,17 +167,17 @@ Parameter('p31', 1e-3)
 Parameter('p32', 1e-1)
 
 
-Rule('CIIC8FL_RIP1truc', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % flip_L(bDED=4, state = 'A') >>
-     TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') + FADD(bDD=None,bDED1 = None, bDED2 = None) + C8(bf=None,flip = 4, state='A') % flip_L(bDED=4, state = 'A') , p29)
+Rule('CIIC8FL_RIP1truc', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % FLIP(bDED=4, state = 'A') >>
+     TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') + FADD(bDD=None,bDED1 = None, bDED2 = None) + C8(bf=None,flip = 4, state='A') % FLIP(bDED=4, state = 'A') , p29)
 #
 #
 Rule('CIIRIP3_b_C8FL', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=5,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = None, bDED2 = None) % RIP3(bRHIM=5, bDD = None, state='unmod') +
-     C8(bf=None,flip = 4, state='A') % flip_L(bDED=4, state = 'A') | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=6,bDD = 1,bRHIM=5,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = None, bDED2 = None)
-     % RIP3(bRHIM=5, bDD = None, state='unmod')% C8(bf=6,flip = 4, state='A') % flip_L(bDED=4, state = 'A'), p30,p31)
+     C8(bf=None,flip = 4, state='A') % FLIP(bDED=4, state = 'A') | TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=6,bDD = 1,bRHIM=5,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = None, bDED2 = None)
+     % RIP3(bRHIM=5, bDD = None, state='unmod')% C8(bf=6,flip = 4, state='A') % FLIP(bDED=4, state = 'A'), p30,p31)
 
 Rule('CIIC8FLRIP3_RIP1truc', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=6,bDD = 1,bRHIM=5,bMLKL=None, state='deub') % FADD(bDD=1,bDED1 = None, bDED2 = None)
-     % RIP3(bRHIM=5, bDD = None, state='unmod')% C8(bf=6,flip = 4, state='A') % flip_L(bDED=4, state = 'A') >> TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') +
-     FADD(bDD=None,bDED1 = None, bDED2 = None) +  RIP3(bRHIM=None, bDD = None, state='unmod') + C8(bf=None,flip = 4, state='A') % flip_L(bDED=4, state = 'A'), p32)
+     % RIP3(bRHIM=5, bDD = None, state='unmod')% C8(bf=6,flip = 4, state='A') % FLIP(bDED=4, state = 'A') >> TRADD(brec = None, brip = None, bDD1=None, bDD2=None) + RIP1(bscf=None, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='trunc') +
+     FADD(bDD=None,bDED1 = None, bDED2 = None) +  RIP3(bRHIM=None, bDD = None, state='unmod') + C8(bf=None,flip = 4, state='A') % FLIP(bDED=4, state = 'A'), p32)
 
 
 
@@ -217,7 +217,7 @@ Rule('RIP1pRIP3p_cat_MLKLp', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = 
 
 Observable('MLKLa_obs', MLKL(bRHIM=None, state='active'))
 Observable('CII_C8a_obs', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=None,bMLKL=None, state='deub') %
-           FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % flip_L(bDED=4, state = 'A'))
+           FADD(bDD=1,bDED1 = 2, bDED2 = None) % C8(bf=2,flip = 4, state='A') % FLIP(bDED=4, state = 'A'))
 Observable('CII_RIP3_obs', TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = 1,bRHIM=5,bMLKL=None, state='deub')
            % FADD(bDD=1,bDED1 = None, bDED2 = None) % RIP3(bRHIM=5, bDD = None, state='unmod'))
 Observable('RIP1RIP3unmod_obs', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None, bDD=None, btraf=None, bMLKL = None, bRHIM = 5, state = 'po4')% RIP3(bRHIM=5, bDD = 1, state='po4') % MLKL(bRHIM=1, state='unmod'))
@@ -231,12 +231,12 @@ Observable('A20_CI_obs', TNF(brec = 1) % TNFR(blig=1, brip=2) % TRADD(brec = 2, 
 Observable('CYLD_CI_obs', TNF(brec = 1) % TNFR(blig=1, brip=2) % TRADD(brec = 2, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=4, bub1=6, bub2=7, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='K63ub')
            % TRAF(brip=4, bciap=5, bcyld =None, state='unmod') % cIAP(btraf = 5) % LUBAC(brip = 6) % CYLD(brip=7))
 # Observable('C8_obs', )
-Observable('C8Flip_obs', C8(bf=None,flip = 4, state='A') % flip_L(bDED=4, state = 'A'))
+Observable('C8Flip_obs', C8(bf=None,flip = 4, state='A') % FLIP(bDED=4, state = 'A'))
 Observable('RIP1TRADD_obs',  TRADD(brec = None, brip = 3, bDD1=None, bDD2=None) % RIP1(bscf=3, btraf=None, bub1=None, bub2=None, bub3=None,bDD = None,bRHIM=None,bMLKL=None, state='deub'))
 Observable('RIP1k63_obs', RIP1(state='K63ub'))
 Observable('RIP1deub_obs', RIP1(state='deub'))
 Observable('RIP1trunc_obs', RIP1(state='trunc'))
-Observable('Flip_obs', flip_L(bDED=None, state = 'A'))
+Observable('Flip_obs', FLIP(bDED=None, state = 'A'))
 Observable('FADDa_obs',FADD()) 
 Observable('FADDu_obs',FADD(bDD=None,bDED1 = None, bDED2 = None)) 
 Observable('R1dbR3_obs', RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None, bDD=None, btraf=None, bMLKL = None, bRHIM = 5, state = 'deub')% RIP3(bRHIM=5, bDD = None, state='unmod'))

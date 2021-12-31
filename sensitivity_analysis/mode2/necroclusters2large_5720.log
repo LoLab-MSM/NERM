@@ -226,3 +226,18 @@
 2021-12-30 22:09:31.294 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
 2021-12-30 22:09:31.297 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
 2021-12-30 22:09:32.261 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2021-12-31 15:45:37.396 - pysb - INFO - Logging started on PySB version 1.11.0
+2021-12-31 15:45:37.398 - pysb - INFO - Log entry time offset from UTC: -6.00 hours
+2021-12-31 15:45:41.865 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2021-12-31 15:45:43.096 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2021-12-31 15:45:43.296 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Equation mode set to "cython"
+2021-12-31 15:45:43.807 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2021-12-31 15:45:43.850 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Single processor (serial) mode
+2021-12-31 15:45:44.010 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2021-12-31 15:45:44.012 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2021-12-31 15:45:44.070 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2021-12-31 15:45:44.072 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2021-12-31 15:45:44.217 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Multi-processor (parallel) mode using 20 processes
+2021-12-31 15:47:43.413 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2021-12-31 15:47:43.414 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2021-12-31 15:47:44.490 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
