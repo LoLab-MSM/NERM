@@ -558,8 +558,8 @@ class InitialsSensitivity(object):
             labels = reversed(sens.index)
 #             ax.set_yticks(range(len(sens.index)), list(reversed(sens.index)))
 #             plt.setp(ax, yticklabels=list(reversed(sens.index)))
-            print('first pass')
-            print(x)
+#             print('first pass')
+#             print(x)
             
         else:
             x = np.loadtxt(open(infile, "rb"), delimiter=",")
@@ -567,9 +567,9 @@ class InitialsSensitivity(object):
             labels = reversed(names)
 #             plt.setp(ax, yticklabels=list(reversed(names)))
             
-            print(infile)
-            print('second pass')
-            print(x)
+#             print(infile)
+#             print('second pass')
+#             print(x)
 #         ax.boxplot(x, vert=False, labels=None, showfliers=False)
         #sns.boxplot(x, vert=False, labels=None, showfliers=False, whis=0)
 #         upper_quartile = np.percentile(x, 75)
@@ -579,7 +579,7 @@ class InitialsSensitivity(object):
         ax.boxplot(x, vert=False, showfliers=False, whis=0)
         ax.set_yticklabels(labels)
 #         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
-        ax.set_xlim(-4, 4)
+        ax.set_xlim(-4.5, 4.5)
 #         if x_axis_label is not None:
 #             ax.set_xlabel(x_axis_label, fontsize=15)
         # plt.yticks(ax, yticklabels=reversed(self.index), fontsize=8)
