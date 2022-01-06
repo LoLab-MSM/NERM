@@ -191,3 +191,45 @@
 2021-12-31 14:48:38.742 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
 2021-12-31 14:48:38.744 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
 2021-12-31 14:48:39.718 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-04 02:05:08.966 - pysb - INFO - Logging started on PySB version 1.11.0
+2022-01-04 02:05:08.968 - pysb - INFO - Log entry time offset from UTC: -6.00 hours
+2022-01-04 02:05:18.312 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 02:05:23.102 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 02:05:23.433 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Equation mode set to "cython"
+2022-01-04 02:05:27.589 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 02:05:27.636 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Single processor (serial) mode
+2022-01-04 02:05:27.735 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2022-01-04 02:05:27.736 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2022-01-04 02:05:27.778 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-04 02:05:27.779 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 02:05:28.780 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Multi-processor (parallel) mode using 20 processes
+2022-01-04 04:00:44.083 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2022-01-04 04:00:44.085 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2022-01-04 04:00:51.453 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-04 11:05:33.336 - pysb - INFO - Logging started on PySB version 1.11.0
+2022-01-04 11:05:33.338 - pysb - INFO - Log entry time offset from UTC: -6.00 hours
+2022-01-04 11:05:35.411 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 11:05:40.241 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 11:05:40.587 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Equation mode set to "cython"
+2022-01-04 11:05:44.740 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 11:05:44.784 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Single processor (serial) mode
+2022-01-04 11:05:44.881 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2022-01-04 11:05:44.882 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2022-01-04 11:05:44.922 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-04 11:05:44.923 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 11:05:45.946 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Multi-processor (parallel) mode using 20 processes
+2022-01-04 13:34:13.865 - pysb - INFO - Logging started on PySB version 1.11.0
+2022-01-04 13:34:13.867 - pysb - INFO - Log entry time offset from UTC: -6.00 hours
+2022-01-04 13:34:18.350 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 13:34:23.208 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Simulator created
+2022-01-04 13:34:23.528 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Equation mode set to "cython"
+2022-01-04 13:34:27.704 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 13:34:27.749 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Single processor (serial) mode
+2022-01-04 13:34:27.847 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2022-01-04 13:34:27.848 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2022-01-04 13:34:27.888 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-04 13:34:27.890 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] Simulation(s) started
+2022-01-04 13:34:28.914 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] Multi-processor (parallel) mode using 20 processes
+2022-01-04 15:26:59.996 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
+2022-01-04 15:26:59.999 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
+2022-01-04 15:27:07.513 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished

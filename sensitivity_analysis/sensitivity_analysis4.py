@@ -605,7 +605,90 @@ class InitialsSensitivity(object):
         plt.close()
         return fig    
     
-    
+    @staticmethod
+    def create_boxplotp(sens=None, x_axis_label=None, save_name=None,
+                                    out_dir=None, show=False, infile = None, names = None):
+        """
+        Heat map and box plot of sensitivities
+
+        Parameters
+        ----------
+        x_axis_label : str, optional
+            label for x asis
+        save_name : str, optional
+            name of figure to save
+        out_dir : str, option
+            output directory to save figures
+        show : bool
+            Show plot if True
+
+        Returns
+        -------
+        matplotlib.figure.Figure
+            The matplotlib figure object for further adjustments, if required
+        """
+        colors = 'seismic'
+        # Create heatmap and boxplot of data
+        fig, ax = plt.subplots(figsize = (15, 20), linewidth=3)
+        for axis in ['top','bottom','left','right']:
+            ax.spines[axis].set_linewidth(1.5)
+#         v_max = max(np.abs(self.p_matrix.min()), self.p_matrix.max())
+#         print(v_max)
+#         v_min = -1 * v_max
+#         print(v_min)
+        
+        if infile is None:
+            sens_ij_nm = sens.sensitivity_multiset
+            x = [np.array(mat).flatten() for mat in sens_ij_nm[::-1]]
+            labels = reversed(sens.index)
+#             ax.set_yticks(range(len(sens.index)), list(reversed(sens.index)))
+#             plt.setp(ax, yticklabels=list(reversed(sens.index)))
+#             print('first pass')
+#             print(x)
+            
+        else:
+            x = np.loadtxt(open(infile, "rb"), delimiter=",")
+            x = [xx for xx in x]
+            labels = reversed(names)
+#             plt.setp(ax, yticklabels=list(reversed(names)))
+            
+#             print(infile)
+#             print('second pass')
+#             print(x)
+#         ax.boxplot(x, vert=False, labels=None, showfliers=False)
+        #sns.boxplot(x, vert=False, labels=None, showfliers=False, whis=0)
+#         upper_quartile = np.percentile(x, 75)
+#         print(upper_quartile)
+#         lower_quartile = np.percentile(x, 25)
+#         print(lower_quartile)
+        ax.boxplot(x, vert=False, showfliers=False, whis=0, boxprops = dict(linewidth=2, color='black'))
+        ax.set_yticklabels(labels)
+#         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
+#         ax.set_xlim(-6.5, 6.5)
+#         if x_axis_label is not None:
+#             ax.set_xlabel(x_axis_label, fontsize=15)
+        # plt.yticks(ax, yticklabels=reversed(self.index), fontsize=8)
+#         plt.xticks(fontsize=8, rotation=90)
+        ax.yaxis.tick_left()
+        ax.set_aspect(1. / ax.get_data_ratio(), adjustable='box')
+        ax.tick_params(axis='both', which='major', labelsize=20)
+        if save_name is not None:
+            if out_dir is None:
+                out_dir = '.'
+            if not os.path.exists(out_dir):
+                os.mkdir(out_dir)
+            plt.savefig(os.path.join(out_dir, save_name + '.png'),
+                        bbox_inches='tight')
+            plt.savefig(os.path.join(out_dir, save_name + '.pdf'),
+                        bbox_inches='tight')
+            # plt.savefig(os.path.join(out_dir, save_name + '.svg'),
+            #             bbox_inches='tight')
+        if show:
+            plt.show()
+        if infile is None:
+            np.savetxt(os.path.join(out_dir, save_name + '.csv'), x, delimiter=",") #to save np array x
+        plt.close()
+        return fig      
 #     def create_histogram(self, x_axis_label=None, save_name=None,
 #                                     out_dir=None, show=False):
 #         """
