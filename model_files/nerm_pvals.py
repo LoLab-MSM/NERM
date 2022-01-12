@@ -246,6 +246,7 @@ Observable('R1pR3pM_obs',RIP1(bscf = None, bub1 = None, bub2 = None, bub3 = None
 Observable('RIP1unphos_obs', RIP1(state = 'unmod') + RIP1(state = 'K63ub') + RIP1(state = 'deub'))
 Observable('RIP1phos_obs', RIP1(state = 'po4'))
 Observable('RIP1_obs', RIP1())
+Observable('MLKLtot_obs', MLKL())
 
 
 

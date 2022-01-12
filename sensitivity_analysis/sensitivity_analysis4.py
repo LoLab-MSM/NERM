@@ -576,10 +576,13 @@ class InitialsSensitivity(object):
 #         print(upper_quartile)
 #         lower_quartile = np.percentile(x, 25)
 #         print(lower_quartile)
+        print(np.array(x).shape)
+        for i in range(len(x)):
+            x[i] = x[i][~np.isnan(x[i])]
         ax.boxplot(x, vert=False, showfliers=False, whis=0)
         ax.set_yticklabels(labels)
 #         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
-        ax.set_xlim(-4.5, 4.5)
+#         ax.set_xlim(-6, 6)
 #         if x_axis_label is not None:
 #             ax.set_xlabel(x_axis_label, fontsize=15)
         # plt.yticks(ax, yticklabels=reversed(self.index), fontsize=8)
