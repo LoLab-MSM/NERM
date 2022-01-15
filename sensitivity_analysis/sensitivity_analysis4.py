@@ -582,7 +582,7 @@ class InitialsSensitivity(object):
         ax.boxplot(x, vert=False, showfliers=False, whis=0)
         ax.set_yticklabels(labels)
 #         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
-#         ax.set_xlim(-6, 6)
+        ax.set_xlim(-2.5, 2.5)
 #         if x_axis_label is not None:
 #             ax.set_xlabel(x_axis_label, fontsize=15)
         # plt.yticks(ax, yticklabels=reversed(self.index), fontsize=8)
@@ -632,7 +632,7 @@ class InitialsSensitivity(object):
         """
         colors = 'seismic'
         # Create heatmap and boxplot of data
-        fig, ax = plt.subplots(figsize = (15, 20), linewidth=3)
+        fig, ax = plt.subplots(figsize = (10,10), linewidth=2)
         for axis in ['top','bottom','left','right']:
             ax.spines[axis].set_linewidth(1.5)
 #         v_max = max(np.abs(self.p_matrix.min()), self.p_matrix.max())
@@ -664,17 +664,20 @@ class InitialsSensitivity(object):
 #         print(upper_quartile)
 #         lower_quartile = np.percentile(x, 25)
 #         print(lower_quartile)
-        ax.boxplot(x, vert=False, showfliers=False, whis=0, boxprops = dict(linewidth=2, color='black'))
+        print(np.array(x).shape)
+        for i in range(len(x)):
+            x[i] = x[i][~np.isnan(x[i])]
+        ax.boxplot(x[20:], vert=False, showfliers=False, whis=0, boxprops = dict(linewidth=2, color='black'))
         ax.set_yticklabels(labels)
 #         ax.boxplot(lower_quartile, vert=False, labels=None, showfliers=False, whis=0)
-#         ax.set_xlim(-6.5, 6.5)
+        ax.set_xlim(-4.5, 4.5)
 #         if x_axis_label is not None:
 #             ax.set_xlabel(x_axis_label, fontsize=15)
         # plt.yticks(ax, yticklabels=reversed(self.index), fontsize=8)
 #         plt.xticks(fontsize=8, rotation=90)
         ax.yaxis.tick_left()
         ax.set_aspect(1. / ax.get_data_ratio(), adjustable='box')
-        ax.tick_params(axis='both', which='major', labelsize=20)
+        ax.tick_params(axis='both', which='major', labelsize=30)
         if save_name is not None:
             if out_dir is None:
                 out_dir = '.'
