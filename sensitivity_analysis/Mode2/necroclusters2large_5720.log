@@ -50,3 +50,9 @@
 2022-01-14 14:56:38.541 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals] All simulation(s) complete
 2022-01-14 14:56:38.543 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor started
 2022-01-14 14:56:46.298 - pysb.simulator.scipyode - DEBUG - [model_files.nerm_pvals] SimulationResult constructor finished
+2022-01-31 21:02:02.301 - pysb - INFO - Logging started on PySB version 1.11.0
+2022-01-31 21:02:02.320 - pysb - INFO - Log entry time offset from UTC: -6.00 hours
+2022-01-31 21:02:04.061 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals_inits] Simulation(s) started
+2022-01-31 21:02:04.186 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals_inits] All simulation(s) complete
+2022-01-31 21:02:04.298 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals_inits] Simulation(s) started
+2022-01-31 21:03:58.927 - pysb.simulator.scipyode - INFO - [model_files.nerm_pvals_inits] All simulation(s) complete
